@@ -1,0 +1,209 @@
+lint: install_deps> python -I -m pip install black flake8 isort mypy
+.pkg: _optional_hooks> python /root/others/NarouDataAPI/venv/lib/python3.7/site-packages/pyproject_api/_backend.py True setuptools.build_meta __legacy__
+.pkg: get_requires_for_build_sdist> python /root/others/NarouDataAPI/venv/lib/python3.7/site-packages/pyproject_api/_backend.py True setuptools.build_meta __legacy__
+.pkg: prepare_metadata_for_build_wheel> python /root/others/NarouDataAPI/venv/lib/python3.7/site-packages/pyproject_api/_backend.py True setuptools.build_meta __legacy__
+.pkg: build_sdist> python /root/others/NarouDataAPI/venv/lib/python3.7/site-packages/pyproject_api/_backend.py True setuptools.build_meta __legacy__
+lint: install_package_deps> python -I -m pip install bs4 click
+lint: install_package> python -I -m pip install --force-reinstall --no-deps /root/others/NarouDataAPI/.tox/.tmp/package/7/narou-data-api-1.0.tar.gz
+lint: commands[0]> black .
+lint: commands[1]> isort .
+Fixing /root/others/NarouDataAPI/tests/test_api.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/Log.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/LogWin.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/cached.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/get_data.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/loader.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/login.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/names.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/plter_data.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/pv_watcher.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/write_data.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/Classes/Exceptions.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/Classes/Novel.py
+Fixing /root/others/NarouDataAPI/pv_watcher/src/Classes/User.py
+Fixing /root/others/NarouDataAPI/narou_data_api/api.py
+Fixing /root/others/NarouDataAPI/narou_data_api/utils.py
+Fixing /root/others/NarouDataAPI/narou_data_api/models.py
+Fixing /root/others/NarouDataAPI/narou_data_api/___init__.py
+Fixing /root/others/NarouDataAPI/narou_data_api/cli.py
+Skipped 3 files
+lint: commands[2]> flake8 .
+./setup.py:1:1: F401 'os' imported but unused
+./tests/test_api.py:8:1: E402 module level import not at top of file
+./tests/test_api.py:19:120: E501 line too long (149 > 119 characters)
+./tests/test_api.py:31:5: F841 local variable 'test' is assigned to but never used
+./tests/test_api.py:47:5: E266 too many leading '#' for block comment
+./tests/test_api.py:71:5: E266 too many leading '#' for block comment
+./tests/test_api.py:73:120: E501 line too long (132 > 119 characters)
+./tests/test_api.py:75:5: E265 block comment should start with '# '
+./tests/test_api.py:78:5: E266 too many leading '#' for block comment
+./tests/test_api.py:85:22: F821 undefined name 'test2'
+./tests/test_api.py:93:120: E501 line too long (411 > 119 characters)
+./tests/test_api.py:128:120: E501 line too long (318 > 119 characters)
+./tests/test_api.py:151:120: E501 line too long (893 > 119 characters)
+./tests/test_api.py:163:120: E501 line too long (135 > 119 characters)
+./tests/test_api.py:165:120: E501 line too long (909 > 119 characters)
+./tests/test_api.py:170:120: E501 line too long (135 > 119 characters)
+./tests/test_api.py:254:120: E501 line too long (411 > 119 characters)
+./tests/test_api.py:419:120: E501 line too long (411 > 119 characters)
+./tests/test_api.py:508:120: E501 line too long (411 > 119 characters)
+./tests/test_api.py:543:120: E501 line too long (411 > 119 characters)
+./tests/test_api.py:578:120: E501 line too long (411 > 119 characters)
+./tests/test_api.py:613:120: E501 line too long (411 > 119 characters)
+./pv_watcher/src/LogWin.py:7:1: F401 'Log.Trace' imported but unused
+./pv_watcher/src/LogWin.py:8:1: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/LogWin.py:8:1: F401 'names.*' imported but unused
+./pv_watcher/src/cached.py:4:1: F401 'Log.Trace' imported but unused
+./pv_watcher/src/cached.py:5:1: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/cached.py:23:25: F405 'day_pv_chp' may be undefined, or defined from star imports: names
+./pv_watcher/src/cached.py:24:16: F405 'cache_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/cached.py:25:13: F405 'cache_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/cached.py:26:17: F405 'cache_name' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:13:1: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/get_data.py:27:5: F405 'payload_novel' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:29:26: F405 'url_novel' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:29:44: F405 'payload_novel' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:31:5: E722 do not use bare 'except'
+./pv_watcher/src/get_data.py:68:5: F405 'payload_usr' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:70:26: F405 'url_usr' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:70:42: F405 'payload_usr' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:72:5: E722 do not use bare 'except'
+./pv_watcher/src/get_data.py:94:12: F405 'day_pv_sum' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:114:25: E711 comparison to None should be 'if cond is None:'
+./pv_watcher/src/get_data.py:130:12: F405 'day_pv_chp' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:135:13: F405 'day_pv_chp' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:139:13: F841 local variable 'header' is assigned to but never used
+./pv_watcher/src/get_data.py:177:12: F405 'day_pv_sum' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:182:13: F405 'day_pv_sum' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:186:13: F841 local variable 'header' is assigned to but never used
+./pv_watcher/src/get_data.py:398:32: E741 ambiguous variable name 'l'
+./pv_watcher/src/get_data.py:401:36: E741 ambiguous variable name 'l'
+./pv_watcher/src/get_data.py:405:32: E741 ambiguous variable name 'l'
+./pv_watcher/src/get_data.py:407:36: E741 ambiguous variable name 'l'
+./pv_watcher/src/get_data.py:431:13: E741 ambiguous variable name 'l'
+./pv_watcher/src/get_data.py:486:16: F405 'novel_impression_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:489:13: F405 'novel_impression_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:511:15: F405 'day_pv_sum' may be undefined, or defined from star imports: names
+./pv_watcher/src/get_data.py:527:5: F401 'time' imported but unused
+./pv_watcher/src/loader.py:12:1: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/loader.py:24:9: F405 'user_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:24:37: F405 'backup_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:35:28: F405 'log_get_data' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:60:21: F405 'day_pv_sum' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:61:21: F405 'day_pv_chp' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:65:27: F405 'backup_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:71:5: F841 local variable 'e' is assigned to but never used
+./pv_watcher/src/loader.py:107:25: F405 'backup_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:113:13: F405 'day_pv_chp' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:114:13: F405 'day_pv_sum' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:115:13: F405 'novel_impression_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:118:38: F405 'user_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/loader.py:120:19: F405 'backup_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/login.py:7:1: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/login.py:24:24: F405 'config_user' may be undefined, or defined from star imports: names
+./pv_watcher/src/login.py:27:12: F405 'user_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/login.py:28:21: F405 'user_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/names.py:12:120: E501 line too long (128 > 119 characters)
+./pv_watcher/src/pv_watcher.py:7:1: F401 're.S' imported but unused
+./pv_watcher/src/pv_watcher.py:17:1: F403 'from loader import *' used; unable to detect undefined names
+./pv_watcher/src/pv_watcher.py:20:1: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/pv_watcher.py:21:1: F403 'from plter_data import *' used; unable to detect undefined names
+./pv_watcher/src/pv_watcher.py:44:17: F405 'config_main' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:83:25: F405 'config_main' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:85:12: E713 test for membership should be 'not in'
+./pv_watcher/src/pv_watcher.py:89:19: F405 'config_main' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:118:12: F402 import 'f' from line 6 shadowed by loop variable
+./pv_watcher/src/pv_watcher.py:157:12: F402 import 'f' from line 6 shadowed by loop variable
+./pv_watcher/src/pv_watcher.py:616:26: F405 'day_pv_sum' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:647:62: F405 'all_update' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:653:69: F405 'sum_chp' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:658:25: F405 'day_pv' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:664:55: F405 'leave_chp' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:670:25: F405 'all_chp_plt' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:705:25: F405 'kaku_chp' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:717:25: F405 'day_pv_rate_chp' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:761:53: F405 'omake_plt' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:774:5: F405 'logger' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:775:5: F405 'write_data' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:778:35: F405 'user_dir' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:783:14: F405 'program_dir' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/pv_watcher.py:785:17: F405 'config_main' may be undefined, or defined from star imports: loader, names, plter_data
+./pv_watcher/src/write_data.py:15:1: F401 'Log.Trace' imported but unused
+./pv_watcher/src/write_data.py:16:1: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/write_data.py:33:19: E711 comparison to None should be 'if cond is None:'
+./pv_watcher/src/write_data.py:40:11: F405 'log_get_data_chp' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:46:11: F405 'log_get_data_chp_in_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:52:9: F402 import 'date' from line 6 shadowed by loop variable
+./pv_watcher/src/write_data.py:54:33: F405 'url_pvs' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:71:23: F405 'log_get_data_chp_in_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:77:19: F405 'log_get_data_chp_in_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:94:17: F405 'user_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:97:9: F405 'day_pv_chp' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:125:19: E711 comparison to None should be 'if cond is None:'
+./pv_watcher/src/write_data.py:132:11: F405 'log_get_data_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:141:11: F405 'log_get_data_day_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:146:33: F405 'url_pvs_per_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:186:23: F405 'log_get_data_day_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:193:19: F405 'log_get_data_day_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:210:23: F405 'log_get_data_day_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:223:23: F405 'log_get_data_day_day' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:234:17: F405 'user_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:236:9: F405 'day_pv_sum' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:258:23: F405 'config_user' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:259:21: F405 'config_user' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:263:8: E713 test for membership should be 'not in'
+./pv_watcher/src/write_data.py:267:15: F405 'config_user' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:270:20: F405 'log_update_least_get_data' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:280:17: F405 'user_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:292:12: F405 'novel_info_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:294:17: F405 'novel_info_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:304:13: F405 'novel_info_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:321:13: F405 'novel_info_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:340:13: F405 'novel_info_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:360:11: F405 'log_impression_get' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:363:12: F405 'novel_impression_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:367:13: F405 'novel_impression_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:382:22: F405 'url_novelpage' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:382:67: F405 'request_headers' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:396:42: F405 'request_headers' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:424:27: E711 comparison to None should be 'if cond is None:'
+./pv_watcher/src/write_data.py:448:17: F405 'user_dir' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:449:12: F405 'novel_impression_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:451:13: F405 'novel_impression_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:457:9: F405 'novel_impression_csv' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:470:15: F405 'readme_user' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:492:5: F811 redefinition of unused 'os' from line 4
+./pv_watcher/src/write_data.py:496:5: F811 redefinition of unused 'requests' from line 10
+./pv_watcher/src/write_data.py:499:5: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/write_data.py:499:5: F811 redefinition of unused 'names.*' from line 16
+./pv_watcher/src/write_data.py:501:5: F405 'payload_novel' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:502:22: F405 'url_novel' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:502:40: F405 'payload_novel' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:506:5: F405 'payload_usr' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:507:22: F405 'url_usr' may be undefined, or defined from star imports: names
+./pv_watcher/src/write_data.py:507:38: F405 'payload_usr' may be undefined, or defined from star imports: names
+./pv_watcher/src/Classes/Novel.py:107:38: E711 comparison to None should be 'if cond is None:'
+./pv_watcher/src/Classes/Novel.py:156:120: E501 line too long (345 > 119 characters)
+./pv_watcher/src/Classes/Novel.py:189:5: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/Classes/Novel.py:191:5: F405 'payload_novel' may be undefined, or defined from star imports: names
+./pv_watcher/src/Classes/Novel.py:192:22: F405 'url_novel' may be undefined, or defined from star imports: names
+./pv_watcher/src/Classes/Novel.py:192:40: F405 'payload_novel' may be undefined, or defined from star imports: names
+./pv_watcher/src/Classes/User.py:71:5: F403 'from names import *' used; unable to detect undefined names
+./pv_watcher/src/Classes/User.py:73:5: F405 'payload_usr' may be undefined, or defined from star imports: names
+./pv_watcher/src/Classes/User.py:74:22: F405 'url_usr' may be undefined, or defined from star imports: names
+./pv_watcher/src/Classes/User.py:74:38: F405 'payload_usr' may be undefined, or defined from star imports: names
+./narou_data_api/api.py:52:9: E722 do not use bare 'except'
+./narou_data_api/api.py:385:13: F402 import 'date' from line 6 shadowed by loop variable
+./narou_data_api/api.py:424:34: E712 comparison to False should be 'if cond is False:' or 'if not cond:'
+./narou_data_api/api.py:667:23: E711 comparison to None should be 'if cond is None:'
+./narou_data_api/utils.py:2:1: F401 'pickle' imported but unused
+./narou_data_api/config.py:55:1: E402 module level import not at top of file
+./narou_data_api/config.py:61:120: E501 line too long (128 > 119 characters)
+./narou_data_api/models.py:95:1: E402 module level import not at top of file
+./narou_data_api/models.py:135:1: F811 redefinition of unused 'SmallGenre' from line 42
+./narou_data_api/models.py:358:120: E501 line too long (345 > 119 characters)
+./narou_data_api/cli.py:1:1: F401 'pickle' imported but unused
+lint: exit 1 (1.15 seconds) /root/others/NarouDataAPI> flake8 . pid=24016
+.pkg: _exit> python /root/others/NarouDataAPI/venv/lib/python3.7/site-packages/pyproject_api/_backend.py True setuptools.build_meta __legacy__
+  lint: FAIL code 1 (15.33=setup[10.53]+cmd[3.41,0.23,1.15] seconds)
+  evaluation failed :( (15.44 seconds)

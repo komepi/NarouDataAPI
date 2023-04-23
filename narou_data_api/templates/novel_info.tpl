@@ -1,0 +1,17 @@
+* [title]
+    url: [url]
+    ncode: [ncode]
+    userid: [userid]
+    biggenre: [biggenre]
+    genre: [genre]
+    firstup: [firstup]
+    lastup: [lastup]
+    novel_type: [novel_type]
+    is_end: [is_end]
+    points:
+        hyoka_point: [global_point]
+            fav: [fav_novel_cnt] * 2
+            hyoka: [all_point]
+                cnt: [all_hyoka_cnt]
+                -> average: [average_hyoka]
+story: [story]
